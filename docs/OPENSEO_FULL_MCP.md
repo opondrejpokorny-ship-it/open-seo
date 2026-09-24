@@ -117,3 +117,82 @@ Pending:
 - optionally connect GSC/GA4 for a real project;
 - decide whether a separate raw Lighthouse MCP tool adds useful capability;
 - evaluate a local/free crawler integration as the next free-first extension.
+
+## Detailed gap plan
+
+The server-function inventory was compared with the MCP registry after the
+59-tool pilot.
+
+### P1 — project lifecycle
+
+Add explicit tools for:
+
+- update project;
+- list archived projects;
+- archive project;
+- restore project;
+- set/change the project website.
+
+These are local/database operations and use no DataForSEO credits. Archive and
+restore must preserve the app's organization permission checks and advertise
+accurate MCP destructive annotations.
+
+### P2 — Google integration management
+
+The reporting surfaces are already covered, but connection management is not.
+Add tools for:
+
+- read GSC connection status;
+- list accessible GSC properties;
+- select a GSC property;
+- disconnect GSC;
+- start the self-hosted GSC OAuth link flow;
+- read GA4 connection status;
+- list accessible GA4 properties;
+- select a GA4 property;
+- disconnect GA4;
+- start the self-hosted GA4 OAuth link flow.
+
+OAuth-start tools should return an action URL rather than attempt to automate
+the user's Google consent screen.
+
+### P3 — rank tracking depth
+
+The current MCP covers configs, latest results, keyword add/remove, cost
+estimate, and manual run. Review/add:
+
+- update tracker configuration;
+- keyword history;
+- tracker trend;
+- position matrix;
+- refresh tracked-keyword metrics.
+
+### P4 — saved keyword maintenance
+
+Add the useful non-export operations that are only in the app today:
+
+- update keyword tags;
+- update/rename/delete tag definitions;
+- refresh saved keyword metrics.
+
+CSV/export-only helpers do not need dedicated MCP tools when the same structured
+data is already available.
+
+### P5 — Lighthouse audit detail
+
+Expose the stored Lighthouse issue detail for an existing site-audit result.
+Prefer a structured read tool over an export-file wrapper.
+
+### P6 — report sharing
+
+The MCP can create/read/delete reports, but the app can also share and unshare
+them. Add explicit share/unshare tools with capability-token handling kept
+inside the service; do not expose stored share tokens in ordinary report reads.
+
+### Admin/agent-control layer
+
+Account/team/billing, onboarding, dashboard telemetry/actions, workspace merge,
+and SAM session management are not ordinary SEO research capabilities. If the
+goal becomes literally every app action, expose these in a separately documented
+admin/agent-control group with stricter permissions and destructive annotations
+rather than mixing them into routine SEO tools.
