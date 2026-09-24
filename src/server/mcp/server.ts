@@ -86,6 +86,10 @@ import {
   listSiteAuditsTool,
 } from "@/server/mcp/tools/site-audit-cleanup-tools";
 import { whoamiTool } from "@/server/mcp/tools/whoami";
+import {
+  exploreAiPromptTool,
+  getAiBrandVisibilityTool,
+} from "@/server/mcp/tools/ai-search-tools";
 
 type ToolSchema = z.ZodType | z.ZodRawShape;
 
@@ -209,6 +213,8 @@ export function createOpenSeoMcpServer(authProps: McpProps) {
   register(listBusinessCategoriesTool);
   register(getLocalRankGridTool);
   register(getKeywordMetricsTool);
+  register(getAiBrandVisibilityTool);
+  register(exploreAiPromptTool);
   register(getSearchConsolePerformanceTool);
   register(inspectUrlsTool);
   register(getGoogleAnalyticsOrganicLandingPagesTool);
